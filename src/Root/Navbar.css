@@ -1,0 +1,66 @@
+
+.gradient-navbar {
+  background: linear-gradient(90deg, black, green);
+}
+
+
+
+
+.content{
+margin-top:140px;
+padding: 20px;
+}
+.container-fluid{
+  overflow-x: hidden;
+ 
+}
+
+.admin{
+  display: flex;
+ 
+ margin-left:55rem;
+}
+/* //mobile */
+/* .menu{
+    margin-leftrem;
+} */
+
+
+
+
+  .menu {
+    margin-left: 9rem; 
+  }
+
+  .content {
+    margin-top: 100px; 
+    padding: 10px;
+  }
+
+
+
+  
+
+@media(max-width:540px){
+   .menu {
+    margin-left: 11rem; 
+  }
+}
+
+@media (max-width: 1500px) {
+  .admin {
+    margin-left: 55rem; /* smaller margin for mobile */
+    flex-direction: column; /* stack items vertically if needed */
+  }}
+@media (max-width: 1024px) {
+  .admin {
+    margin-left: 38rem; /* smaller margin for mobile */
+    flex-direction: column; /* stack items vertically if needed */
+  }
+}
+@media (max-width: 900px) {
+  .admin {
+    margin-left: 25rem; /* smaller margin for mobile */
+    flex-direction: column; /* stack items vertically if needed */
+  }
+}

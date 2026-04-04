@@ -1,0 +1,14 @@
+*{
+    
+    margin-top: 0px;
+}
+
+
+
+@media (max-width: 768px) {
+    .content {
+        /* A smaller margin top to account for the smaller collapsed navbar */
+        margin-top: 70px;
+    }
+ 
+}

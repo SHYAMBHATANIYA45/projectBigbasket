@@ -1,0 +1,10 @@
+
+
+/* When screen width is less than 1080px */
+@media (max-width: 1080px) {
+  textarea {
+    width: 310px; /* reduced width */
+    color: aqua;  /* optional styling */
+  }
+}
+

@@ -1,0 +1,13 @@
+.image-thumbnail{
+     width:60px;
+     height: 60px;
+     border-radius: 8px ;
+     /* object-fit: cover; */
+
+}
+ @media (min-width: 600px) {
+  .image-thumbnail {
+    width: 60px; /* Larger size for desktop screens */
+    height: 60px;
+  }
+} 
