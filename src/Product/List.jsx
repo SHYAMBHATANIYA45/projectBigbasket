@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
-import { product } from "../../../../my_Project/src/assets/product";
-import Navbar from "../Root/Navbar";
+
+// import Navbar from "../Root/Navbar";
 import axios from "axios";
 import { useState } from "react";
 // import { useEffect } from "react";
