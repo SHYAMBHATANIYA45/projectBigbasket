@@ -1,11 +1,10 @@
 import React from "react";
-import { details } from "../assets/product";
-import Navbar from "../Root/Navbar";
 import { Link } from "react-router-dom";
 import "./Admin.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { API_PRODUCT_URL } from "../config/api";
 
 function Admin() {
      
@@ -15,7 +14,7 @@ function Admin() {
   },[])
 
   let getAllproduct=()=>{
- let url = `http://127.0.0.1:5000/api/product/`
+let url = `${API_PRODUCT_URL}/`;
     axios.get(url).then((response)=>{
      setProducts(response.data.products);
     })
@@ -25,7 +24,7 @@ function Admin() {
   }
 
 let porductDelete=(_id)=>{
-  let url  = `http://127.0.0.1:5000/api/product/${_id}`
+  let url  = `${API_PRODUCT_URL}/${_id}`;
   axios.delete(url).then((response)=>{
    getAllproduct();
   })

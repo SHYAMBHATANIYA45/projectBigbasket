@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import axios from "axios";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { API_PRODUCT_URL } from "../config/api";
 
 
 function Update() {
@@ -24,7 +25,7 @@ function Update() {
 
 useEffect(()=>{
    
-  let url = `http://127.0.0.1:5000/api/product/${_id}`
+  let url = `${API_PRODUCT_URL}/${_id}`;
   axios.get(url).then((res)=>{
        console.log(res.data.product)
        setProduct(res.data.product)
@@ -69,7 +70,7 @@ useEffect(()=>{
 
   let handleSubmit= (event) => {
     event.preventDefault();
-    let url = `http://127.0.0.1:5000/api/product/${_id}`
+    let url = `${API_PRODUCT_URL}/${_id}`;
     axios.put(url,product).then((res)=>{
     setIsSubmitted(true)
     })

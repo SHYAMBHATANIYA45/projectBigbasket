@@ -1,34 +1,45 @@
-  const express = require('express')
-  const app = express()
-  const dotenv = require('dotenv')
-  const mongoose = require('mongoose')
-  const path = require('path');
-  const cors = require('cors')
-  
-  //connect .env file with server
-  dotenv.config({path: './.env'})
+const express = require("express");
+const app = express();
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const cors = require("cors");
 
-  //
-  app.use(express.json());
-  app.use(cors())
+dotenv.config({ path: "./.env" });
 
-  let localhost = process.env.LOCALHOST
-  let port = process.env.port
+app.use(express.json());
 
-  //connect mongodb to server
-  mongoose.connect(process.env.mongodb_url).then((response)=>{
-  console.log('connection successful')
-  }).catch((error)=>{
-  console.log(error)
+const allowedOrigins = (process.env.CORS_ORIGINS || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+app.use(
+  cors({
+    origin: allowedOrigins.length ? allowedOrigins : true,
   })
+);
 
-  app.get('/', (req, res) => {
-    res.send('Hello World!')
+const port = process.env.PORT || 5000;
+
+mongoose
+  .connect(process.env.MONGODB_URL)
+  .then(() => {
+    console.log("connection successful");
   })
+  .catch((error) => {
+    console.log(error);
+  });
 
-  //NOT UNDERSTAND
-  app.use('/api',require('../server/router/produtRouter'))
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
-  app.listen(port,localhost, () => {
-    console.log(`Express Server is Started at : http://${localhost}:${port}`);
-  })
+app.use("/api", require("./router/produtRouter"));
+
+if (process.env.VERCEL !== "1") {
+  app.listen(port, () => {
+    console.log(`Express Server is Started at : http://localhost:${port}`);
+  });
+}
+
+module.exports = app;

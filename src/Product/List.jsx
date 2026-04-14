@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 // import Navbar from "../Root/Navbar";
 import axios from "axios";
 import { useState } from "react";
+import { API_PRODUCT_URL } from "../config/api";
 // import { useEffect } from "react";
 
 
@@ -11,7 +12,7 @@ function List() {
   let[products,setProducts]=useState([])
   
    useEffect(()=>{
-    let url ='http://127.0.0.1:5000/api/product'
+    let url = API_PRODUCT_URL;
     axios.get(url).then((response)=>{
      console.log(response.data)
     setProducts(response.data.products)

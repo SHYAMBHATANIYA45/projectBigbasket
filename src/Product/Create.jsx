@@ -4,6 +4,7 @@ import Admin from "./Admin";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { API_PRODUCT_URL } from "../config/api";
 
 function Create() {
   let Navigate = useNavigate()
@@ -51,7 +52,7 @@ function Create() {
   let formSubmit = (event) => {
     event.preventDefault();
 
-    let url = "http://127.0.0.1:5000/api/product";
+    let url = API_PRODUCT_URL;
 
     //product is body which we write in postman
 
